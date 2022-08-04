@@ -4,4 +4,14 @@
   "description": "Alistair Lane",
   "title": "Alistair Lane",
   "language": "en",
+  "social": [
+    {
+      "title": "Twitter",
+      "url": "https://twitter.com/#"
+    },
+    {
+      "title": "LinkedIn",
+      "url": "https://linkedin.com/company/#"
+    }
+  ]
 }
