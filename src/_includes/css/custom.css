@@ -1,10 +1,10 @@
-*,
-*::before,
-*::after {
-  scroll-behavior: smooth;
+@font-face {
+  font-family: "Pressura";
+  src: url("/fonts/GT-Pressura-Mono-Light.woff2") format("woff2"),
+       url("/fonts/GT-Pressura-Mono-Light.woff") format("woff");
 }
-
-html {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  background: url('/img/bg.svg');
+@font-face {
+  font-family: "Queens";
+  src: url("../../fonts/Queens_W-Medium.woff2") format("woff2"),
+       url("../../fonts/Queens_W-Medium.woff") format("woff");
 }
