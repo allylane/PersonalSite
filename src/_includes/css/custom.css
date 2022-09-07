@@ -1,9 +1,4 @@
 @font-face {
-  font-family: "Pressura";
-  src: url("/fonts/GT-Pressura-Mono-Light.woff2") format("woff2"),
-       url("/fonts/GT-Pressura-Mono-Light.woff") format("woff");
-}
-@font-face {
   font-family: "Queens";
   src: url("../../fonts/Queens_W-Medium.woff2") format("woff2"),
        url("../../fonts/Queens_W-Medium.woff") format("woff");
