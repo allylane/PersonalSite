@@ -147,42 +147,6 @@ a:hover span {
 border-top-left-radius: 36px;
 }
 
-
-/*
-@media only screen and (min-width: 2200px) {
-	h1 {
-	font-size: 13.2rem;
-	line-height: 13.2rem;
-}
-
-h2 {
-	font-size: 5.6rem;
-	line-height: 7.2rem;
-}
-
-h3 {
-	font-size: 8.2rem;
-	line-height: 8.4rem;
-	padding-bottom: 2.6rem;
-}
-
-p {
-	font-size: 4.6rem;
-	line-height: 6.4rem;
-}
-
-a span {
-	right: -46px;
-	top: 0px;
-}
-
-a:hover span {
-	right: -54px;
-}
-
-}
-*/
-
 @media only screen and (max-width: 800px) {
   .profileimage {
   	width: 90%;
