@@ -148,7 +148,7 @@ border-top-left-radius: 36px;
 }
 
 
-
+/*
 @media only screen and (min-width: 2200px) {
 	h1 {
 	font-size: 13.2rem;
@@ -181,7 +181,7 @@ a:hover span {
 }
 
 }
-
+*/
 
 @media only screen and (max-width: 800px) {
   .profileimage {
