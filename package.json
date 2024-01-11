@@ -1,7 +1,7 @@
 {
-  "name": "11ty-landing-page",
+  "name": "alistair-lane",
   "version": "0.0.1",
-  "description": "A simple landing page built with 11ty and Tailwind CSS",
+  "description": "Alistair Lane",
   "scripts": {
     "serve": "eleventy --serve",
     "deploy": "eleventy"
@@ -17,5 +17,8 @@
     "postcss": "^8.3.5",
     "postcss-import": "^14.0.0",
     "tailwindcss": "^2.2.4"
+  },
+  "engines": {
+    "node": ">=14"
   }
 }
