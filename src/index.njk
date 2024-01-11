@@ -2,36 +2,113 @@
 layout: base.njk
 isFront: true
 ---
-<div class="gradient"></div>
-
-
-<div class="header">
-	<div class="intro">
-	<h1>Hey,</h1>
-	<h2>My name is Alistair Lane. I’m a product design leader based in Ottawa, Canada. I spent almost 10 years at Shopify building products, marketing campaigns and leading UX teams.</h2>
-	</div>
-			<img src="img/allylane.jpg" w alt="Alistair Lane" class="profileimage">
+<div class="xl:pl-80 xl:pr-80 lg:pl-32 lg:pr-32 pl-16 pr-16">
+	<div class="flex flex-wrap items-end">
+    <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-4 md:mb-0">
+<h1 class="md:pt-0 pt-16 pb-11">Ally<br />Lane</h1>
+        <p class="pb-7">My name is Alistair Lane. I’m a design leader based in Ottawa, Canada.
+        I currently lead a small team at Noibu, and prior to that I spent almost 10 years at Shopify building products, marketing campaigns and leading UX teams.</p>
+        <div class="flex space-x-2">
+            <a id="emailLink" class="imagelink email" href="mailto:alistair.m.lane@gmail.com">
+                <img src="img/email.png" alt="Email Logo">
+            </a>
+            <a class="imagelink threads" href="https://www.threads.net/@ally__lane">
+                <img src="img/threads.png" alt="Threads Logo">
+            </a>
+        </div>
+    </div>
+    <div class="hidden md:hidden lg:block lg:w-1/3 px-4 mb-4 md:mb-0">
+        <!-- Content for the middle column on desktop -->
+    </div>
+<div class="w-full pt-8 md:pt-0 md:w-1/2 lg:w-1/3 px-4">
+<video autoplay muted loop class="vid w-full" id="video" src="img/allyl.mp4" preload="auto"></video>
+        <!-- Hidden video omitted for simplicity -->
+    </div>
 </div>
 
-<div class="sectiontwo">
-	<div class="project">
-		<h3>Design language</h3>
-		<p>I led the Creative Direction team through a complete refresh of our design language which is used today throughout our suite of products. </p>
-		<p><a href="https://polaris.shopify.com/">Visit Polaris <span>&rarr;</span></a></p>
+	<div class="lg:flex justify-between pt-20">
+		<div class="lg:w-1/3 p-4">
+		<h4>Selected Work</h4>
+		</div>
 	</div>
-	<div class="project rightcolumn">
-		<h3>Take back creativity</h3>
-		<p>In 2018, I gave a talk at internal UX conference to a team of 300+ on the subject of creativity.</p>
-		<p><a href="https://www.youtube.com/watch?v=RS1wQgs9vOs">Watch on Youtube<span>&rarr;</span></a></p>
-	</div>
-	<div class="project">
-		<h3>Polaris style guide</h3>
-		<p>Shopify launched the first official release of our design system in 2017. I designed the website that both internal and external UXers used to work with the system. </p>
-		<p><a href="https://dribbble.com/shots/3455831-Polaris">Check out the Dribbble post <span>&rarr;</span></a></p>
-	</div>
-	<div class="project rightcolumn">
-		<h3>Frenzy</h3>
-		<p>The Garage was a purpose built area within Shopify to work on quick, experimental projects. I led the UX team, and the most noteable project we shipped was Frenzy. I wrote a short article about our design process. </p>
-		<p><a href="https://medium.com/shopify-ux/move-fast-and-make-things-82deb27227c2">Read the Medium article <span>&rarr;</span></a></p>
+	<div class="lg:flex justify-between pt-6">
+		<div class="lg:w-1/3 p-4">
+    <p class="small">
+    2017<br />&mdash; 2020</p>
+    <h2 class="pt-4">Shopify<br/>Design<br/>Language</h2>
+    <p class="pt-8 pb-4">Shopify's Creative Direction team is made up of design technologists, motion designers, product designers, and illustrators.</p>
+    <p class="pb-6">
+    In 2017, we shipped the first version of Shopify’s design system, Polaris. Following that, I led the team through a major refresh of our design language which shipped in 2020.</p>
+    <a class="link mb-6" href="https://polaris.shopify.com/">Visit Polaris</a>
+</div>
+<div class="lg:w-1/3 p-4">
+    <p class="small">
+    2022<br />&mdash; 2023</p>
+    <h2 class="pt-4">Shopify<br/>Theme<br/>System</h2>
+    <p class="pt-8 pb-4">I joined the Online Store team to help evolve the theme design system and the way we use it to enable the team to produce a wider variety of designs, and give our merchants more tools to build their stores.</p>
+    <p class="pb-6">This included shipping two new themes, Colorblock and Origin to the theme store built on this system.</p>
+    <a class="link mr-4 mb-6" href="https://themes.shopify.com/themes/colorblock/styles/default">Colorblock</a><a class="link" href="https://themes.shopify.com/themes/origin/styles/default">Origin</a>
+</div>
+<div class="lg:w-1/3 p-4">
+    <p class="small">
+    2016<br />&mdash; 2017</p>
+    <h2 class="pt-4">Shopify<br/>Garage<br/>Team</h2>
+    <p class="pt-8 pb-4">The Garage was a purpose-built area in Shopify for rapid, experimental projects and I led the UX team.</p>
+    <p class="pb-6">The most noteable project we shipped was Frenzy which was one of Shopify’s first consumer products. It allowed merchants to sell their most hyped products to their biggest fans through limited time flash sales.</p>
+    <a class="link mb-6" href="https://ux.shopify.com/move-fast-and-make-things-82deb27227c2">Medium Article</a>
+</div>
+
 	</div>
 </div>
+
+
+
+<!--
+<script>
+    const emailLink = document.getElementById('emailLink');
+    const video = document.getElementById('video');
+    const hiddenVideo = document.getElementById('hiddenVideo');
+
+    function fadeIn(videoElement) {
+        videoElement.style.display = 'block';
+        videoElement.style.opacity = 0;
+        let opacity = 0;
+        const interval = setInterval(() => {
+            if (opacity < 1) {
+                opacity += 0.05;
+                videoElement.style.opacity = opacity;
+            } else {
+                clearInterval(interval);
+            }
+        }, 30);
+    }
+
+    function fadeOut(videoElement) {
+        let opacity = 1;
+        const interval = setInterval(() => {
+            if (opacity > 0) {
+                opacity -= 0.05;
+                videoElement.style.opacity = opacity;
+            } else {
+                clearInterval(interval);
+                videoElement.style.display = 'none';
+            }
+        }, 30);
+    }
+
+    emailLink.addEventListener('mouseover', () => {
+        fadeIn(hiddenVideo);
+        hiddenVideo.play();
+    });
+
+    hiddenVideo.addEventListener('ended', () => {
+        fadeOut(hiddenVideo);
+    });
+
+    // Play the original video on page load
+    video.play();
+</script>
+
+-->
+
+
