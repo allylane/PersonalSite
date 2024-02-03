@@ -2,113 +2,303 @@
 layout: base.njk
 isFront: true
 ---
-<div class="xl:pl-80 xl:pr-80 lg:pl-32 lg:pr-32 pl-16 pr-16">
-	<div class="flex flex-wrap items-end">
-    <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-4 md:mb-0">
-<h1 class="md:pt-0 pt-16 pb-11">Ally<br />Lane</h1>
-        <p class="pb-7">My name is Alistair Lane. I’m a design leader based in Ottawa, Canada.
-        I currently lead a small team at Noibu, and prior to that I spent almost 10 years at Shopify building products, marketing campaigns and leading UX teams.</p>
-        <div class="flex">
-            <a id="emailLink" class="imagelink email mr-4" href="mailto:alistair.m.lane@gmail.com">
-                <img src="img/email.png" alt="Email Logo">
-            </a>
-            <a class="imagelink threads" href="https://www.threads.net/@ally__lane">
-                <img src="img/threads.png" alt="Threads Logo">
-            </a>
-        </div>
-    </div>
-    <div class="hidden md:hidden lg:block lg:w-1/3 px-4 mb-4 md:mb-0">
-        <!-- Content for the middle column on desktop -->
-    </div>
-<div class="w-full pt-8 md:pt-0 md:w-1/2 lg:w-1/3 px-4">
-<video autoplay muted loop playsinline class="vid w-full" id="video" src="img/allyl.mp4" preload="auto"></video>
-        <!-- Hidden video omitted for simplicity -->
-    </div>
+
+<div class="flex">
+	<div class="w-1/2 h-screen p-40 flex flex-col justify-center">
+		<!-- Content for the first column Starts here -->
+		<div class="sectionone">
+			<h1 class="md:pt-0 pt-16 pb-7">Ally<br />Lane</h1>
+			<div class="flex">
+				<a id="emailLink" class="imagelink email mr-2" href="mailto:alistair.m.lane@gmail.com">
+					<img src="img/email.png" alt="Email Logo">
+				</a>
+				<a class="imagelink threads" href="https://www.threads.net/@ally__lane">
+					<img src="img/threads.png" alt="Threads Logo">
+				</a>
+			</div>
+		</div>
+		<div class="sectiontwo pt-20 pb-10 max-w-xs">
+			<p>My name is Alistair Lane. I’m a design leader based in Ottawa, Canada.
+			I currently lead a small team at Noibu, and prior to that I spent almost 10 years at Shopify building products, marketing campaigns and leading UX teams.</p>
+		</div>
+
+		<!-- Content for the first column Ends here -->
+	</div>
+
+<!-- Video Container -->
+<div class="surround-video-container">
+  <div class="video-container">
+      <!-- Adding videos for 'no glasses' option -->
+      {% for direction in ["Left", "Straight", "Right"] %}
+          <!-- 'No glasses' videos -->
+          {% for airpods in range(0, 2) %}
+              <video autoplay muted loop playsinline
+                    id="{{ direction | lower }}0G{{ airpods }}A"
+                    class="video vid w-full"
+                    preload="metadata"
+                    src="img/{{ direction }}/0G_{{ airpods }}A.mp4"
+                    style="display: none;">
+                  {{ direction }} - No Glasses - AirPods {{ airpods }}
+              </video>
+          {% endfor %}
+          
+          <!-- Videos for glasses 1G, 2G, 3G -->
+          {% for glasses in range(1, 4) %}
+              {% for airpods in range(0, 2) %}
+                  <video autoplay muted loop playsinline
+                        id="{{ direction | lower }}{{ glasses }}G{{ airpods }}A"
+                        class="video vid w-full"
+                        preload="metadata"
+                        src="img/{{ direction }}/{{ glasses }}G_{{ airpods }}A.mp4"
+                        style="display: none;">
+                      {{ direction }} - Glasses {{ glasses }} - AirPods {{ airpods }}
+                  </video>
+              {% endfor %}
+          {% endfor %}
+      {% endfor %}
+      <!-- Secondary Tabs: Type of Glasses -->
+      <div class="secondary-tabs absolute top-0 left-0 w-full h-full">
+          <div class="flex flex-col w-full h-full justify-around">
+              <!-- Row for "No glasses" option -->
+              <div class="flex justify-between w-full h-full">
+                <button class="secondary-tab link w-full h-full text-center" data-glasses="0G">None</button>
+              </div>
+              <!-- Rows for glasses options -->
+              {% set glassesOptions = [
+                  { label: 'Small', data: '1G' },
+                  { label: 'Aviator', data: '2G' },
+                  { label: 'Peach', data: '3G' }
+              ] %}
+              {% for glasses in glassesOptions %}
+              <div class="flex justify-between w-full h-full">
+                <button class="secondary-tab link w-full h-full text-center {% if glasses.data == '2G' %}active{% endif %}" data-glasses="{{ glasses.data }}">{{ glasses.label }}</button>
+              </div>
+              {% endfor %}
+          </div>
+      </div>
+
+  </div>
 </div>
 
-	<div class="lg:flex justify-between pt-20">
-		<div class="lg:w-1/3 p-4">
-		<h4>Selected Work</h4>
+
+
+
+<!--Right Column - need to scroll -->
+<div class="w-1/2 h-screen overflow-auto bluebg">
+    <div class="flex flex-col blue-bg justify-center">
+
+       <!-- Invisible Panels for Hover -->
+      <div class="invisible-panels flex absolute top-0 left-1/2 w-1/2 h-full">
+          <a href="https://polaris.shopify.com/" class="panel" data-target="work-one" style="flex: 1;">Visit Polaris</a>
+          <a href="https://themes.shopify.com/themes/colorblock/styles/default" class="panel" data-target="work-two" style="flex: 1;">Visit Colorblock</a>
+          <a href="https://ux.shopify.com/move-fast-and-make-things-82deb27227c2" class="panel" data-target="work-three" style="flex: 1;">Read Medium Article</a>
+      </div>
+
+        <div class="work work-one h-screen pt-40 pl-40 pr-40 flex flex-col justify-center items-center">
+			<div class="max-w-xs">
+				<p class="small">
+					2017<br />&mdash; 2020
+				</p>
+				<h2 class="pt-4">Shopify<br/>Design<br/>Language</h2>
+				<p class="pt-8 pb-4">Shopify's Creative Direction team is made up of design technologists, motion designers, product designers, and illustrators.</p>
+				<p class="pb-6">
+					In 2017, we shipped the first version of Shopify’s design system, Polaris. Following that, I led the team through a major refresh of our design language which shipped in 2020.
+				</p>
+				<a class="link externallink mb-6" href="https://polaris.shopify.com/">Visit Polaris</a>
+			</div>
 		</div>
-	</div>
-	<div class="lg:flex justify-between pt-6">
-		<div class="lg:w-1/3 p-4">
-    <p class="small">
-    2017<br />&mdash; 2020</p>
-    <h2 class="pt-4">Shopify<br/>Design<br/>Language</h2>
-    <p class="pt-8 pb-4">Shopify's Creative Direction team is made up of design technologists, motion designers, product designers, and illustrators.</p>
-    <p class="pb-6">
-    In 2017, we shipped the first version of Shopify’s design system, Polaris. Following that, I led the team through a major refresh of our design language which shipped in 2020.</p>
-    <a class="link mb-6" href="https://polaris.shopify.com/">Visit Polaris</a>
-</div>
-<div class="lg:w-1/3 p-4">
-    <p class="small">
+
+        <div class="work work-two h-screen pt-40 pl-40 pr-40 flex flex-col justify-center items-center">
+			<div class="max-w-xs">
+	 <p class="small">
     2022<br />&mdash; 2023</p>
     <h2 class="pt-4">Shopify<br/>Theme<br/>System</h2>
     <p class="pt-8 pb-4">I joined the Online Store team to help evolve the theme design system and the way we use it to enable the team to produce a wider variety of designs, and give our merchants more tools to build their stores.</p>
     <p class="pb-6">This included shipping two new themes, Colorblock and Origin to the theme store built on this system.</p>
-    <a class="link mr-4 mb-6" href="https://themes.shopify.com/themes/colorblock/styles/default">Colorblock</a><a class="link" href="https://themes.shopify.com/themes/origin/styles/default">Origin</a>
-</div>
-<div class="lg:w-1/3 p-4">
-    <p class="small">
+    <a class="link externallink mr-4 mb-6" href="https://themes.shopify.com/themes/colorblock/styles/default">Colorblock</a><a class="link" href="https://themes.shopify.com/themes/origin/styles/default">Origin</a>
+	</div>
+	</div>
+
+        	<div class="work work-three h-screen pt-40 pl-40 pr-40 flex flex-col justify-center items-center">
+			<div class="max-w-xs">
+	 <p class="small">
     2016<br />&mdash; 2017</p>
     <h2 class="pt-4">Shopify<br/>Garage<br/>Team</h2>
     <p class="pt-8 pb-4">The Garage was a purpose-built area in Shopify for rapid, experimental projects and I led the UX team.</p>
     <p class="pb-6">The most noteable project we shipped was Frenzy which was one of Shopify’s first consumer products. It allowed merchants to sell their most hyped products to their biggest fans through limited time flash sales.</p>
-    <a class="link mb-6" href="https://ux.shopify.com/move-fast-and-make-things-82deb27227c2">Medium Article</a>
-</div>
-
+    <a class="link externallink mb-6" href="https://ux.shopify.com/move-fast-and-make-things-82deb27227c2">Medium Article</a>
 	</div>
+    </div>
+
+
+
 </div>
 
 
 
-<!--
+
+
+</div>
+
+
 <script>
-    const emailLink = document.getElementById('emailLink');
-    const video = document.getElementById('video');
-    const hiddenVideo = document.getElementById('hiddenVideo');
+document.addEventListener("DOMContentLoaded", function() {
+    const directionTabs = document.querySelectorAll(".tabs .tab");
+    const glassesTabs = document.querySelectorAll(".secondary-tabs .secondary-tab");
+    const videos = document.querySelectorAll(".video-container video");
+    const videoContainer = document.querySelector(".surround-video-container");
 
-    function fadeIn(videoElement) {
-        videoElement.style.display = 'block';
-        videoElement.style.opacity = 0;
-        let opacity = 0;
-        const interval = setInterval(() => {
-            if (opacity < 1) {
-                opacity += 0.05;
-                videoElement.style.opacity = opacity;
-            } else {
-                clearInterval(interval);
-            }
-        }, 30);
+    let selectedDirection = 'straight'; // Set default direction
+    let selectedGlasses = '2G'; // Set default type of glasses
+    let selectedAirpods = '0A'; // Set default AirPods state
+
+    function updateVideo() {
+        let videoId = `${selectedDirection}${selectedGlasses}${selectedAirpods}`;
+        let newActiveVideo = document.getElementById(videoId);
+
+        videos.forEach(video => video.style.display = 'none'); // Hide all videos
+        if (newActiveVideo) {
+            newActiveVideo.style.display = 'block'; // Show new video
+            newActiveVideo.play();
+        }
     }
 
-    function fadeOut(videoElement) {
-        let opacity = 1;
-        const interval = setInterval(() => {
-            if (opacity > 0) {
-                opacity -= 0.05;
-                videoElement.style.opacity = opacity;
-            } else {
-                clearInterval(interval);
-                videoElement.style.display = 'none';
+    document.addEventListener('mousemove', function(e) {
+        const bounds = videoContainer.getBoundingClientRect();
+        const x = e.clientX; // Get the horizontal coordinate
+
+        // Determine if the cursor is directly over the video container
+        if (x >= bounds.left && x <= bounds.right) {
+            selectedDirection = 'straight';
+        } else {
+            // Update direction based on cursor position outside the video container
+            if (x < bounds.left) {
+                selectedDirection = 'left';
+            } else if (x > bounds.right) {
+                selectedDirection = 'right';
             }
-        }, 30);
-    }
+        }
 
-    emailLink.addEventListener('mouseover', () => {
-        fadeIn(hiddenVideo);
-        hiddenVideo.play();
+        // Update the active state visually for direction tabs
+        directionTabs.forEach(tab => {
+            tab.classList.remove("active");
+            if (tab.getAttribute("data-direction") === selectedDirection) {
+                tab.classList.add("active");
+            }
+        });
+
+        updateVideo();
     });
 
-    hiddenVideo.addEventListener('ended', () => {
-        fadeOut(hiddenVideo);
+    // Event listeners for glasses tabs
+    glassesTabs.forEach(tab => tab.addEventListener("click", function() {
+        glassesTabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+        selectedGlasses = tab.getAttribute("data-glasses").toUpperCase();
+        updateVideo();
+    }));
+
+    // Event listener for AirPods switch
+    const airpodsSwitch = document.querySelector('button[role="switch"]');
+    airpodsSwitch.addEventListener('click', () => {
+        const isOn = airpodsSwitch.getAttribute('aria-checked') === 'true';
+        airpodsSwitch.setAttribute('aria-checked', String(!isOn));
+        selectedAirpods = isOn ? '0A' : '1A';
+        updateVideo();
+
+        // Update switch indicator position
+        const indicator = airpodsSwitch.querySelector('span[aria-hidden="true"]');
+        indicator.style.transform = isOn ? 'translateX(0)' : 'translateX(100%)';
     });
 
-    // Play the original video on page load
-    video.play();
+    // Initialize by showing the first video
+    updateVideo();
+});
 </script>
 
--->
 
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const panels = document.querySelectorAll(".invisible-panels a.panel");
+    const works = document.querySelectorAll(".work");
+
+    // Hide all work sections
+    function hideAllWorks() {
+        works.forEach(work => work.style.display = 'none');
+    }
+
+    // Show the work section corresponding to the given class name
+    function showWork(workClass) {
+        hideAllWorks();
+        const workToShow = document.querySelector(`.${workClass}`);
+        if (workToShow) {
+            workToShow.style.display = 'block'; // Adjust this as needed to match your CSS
+        }
+    }
+
+    // Create a tooltip element
+    const tooltip = document.createElement('div');
+    tooltip.className = 'tooltip';
+    document.body.appendChild(tooltip);
+
+    panels.forEach(panel => {
+        panel.addEventListener('mouseenter', () => {
+            // Show the corresponding work section
+            const workClass = panel.getAttribute('data-target');
+            showWork(workClass);
+
+            // Update tooltip text based on data attribute or link text
+            const title = panel.getAttribute('data-title') || panel.textContent;
+            tooltip.textContent = title;
+            tooltip.style.opacity = 1;
+        });
+
+        panel.addEventListener('mousemove', (e) => {
+            // Position the tooltip based on mouse coordinates
+            tooltip.style.left = `${e.pageX + 15}px`; // Offset by 15px from cursor
+            tooltip.style.top = `${e.pageY + 15}px`;
+        });
+
+        panel.addEventListener('mouseleave', () => {
+            tooltip.style.opacity = 0; // Hide the tooltip when not hovering
+            // Optionally, hide all works when not hovering over any panel
+            // hideAllWorks();
+        });
+    });
+
+    // Initially hide all works and show the first one (optional)
+    hideAllWorks();
+    showWork('work-one');
+});
+</script>
+
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const videoContainer = document.querySelector('.video-container');
+  const maxWidthMovement = 100; // Increase max movement on X-axis
+  const maxHeightMovement = 50; // Max movement on Y-axis
+
+  document.addEventListener('mousemove', (e) => {
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+    const cursorPositionX = e.clientX;
+    const cursorPositionY = e.clientY;
+    
+    // Calculate cursor position as percentage of screen width and height
+    const cursorPositionPercentageX = (cursorPositionX / screenWidth) * 100;
+    const cursorPositionPercentageY = (cursorPositionY / screenHeight) * 100;
+    
+    // Convert percentage to movement in pixels
+    const movementX = ((cursorPositionPercentageX - 50) / 50) * -maxWidthMovement; // More significant movement on X-axis
+    const movementY = ((cursorPositionPercentageY - 50) / 50) * -maxHeightMovement; // Movement on Y-axis
+
+    // Apply the calculated transformation
+    videoContainer.style.transform = `translate(${movementX}px, ${movementY}px)`;
+  });
+});
+</script>
 
