@@ -41,12 +41,25 @@ p {
   line-height: 26px;
 }
 
+.lighter {
+  opacity: 0.6;
+}
+
+.heavy {
+  font-weight: 650 !important;
+}
+
+.biggerlineheight {
+  line-height: 1.6 !important;
+}
+
 .small {
   font-size: 11px;
   font-style: normal;
   font-weight: 570;
   line-height: normal;
   letter-spacing: 1.32px;
+  text-transform: uppercase;
 }
 
 body {
@@ -75,18 +88,7 @@ body {
 
 .widevideo {
   border-radius: 12px;
-  box-shadow: 0px 5.479px 3.223px 0px rgba(0, 0, 0, 0.01),
-    0px 13.167px 7.743px 0px rgba(0, 0, 0, 0.02),
-    0px 24.793px 14.355px 0px rgba(0, 0, 0, 0.03),
-    0px 44.226px 24.818px 0px rgba(0, 0, 0, 0.04),
-    0px 82.72px 44.312px 0px rgba(0, 0, 0, 0.05),
-    0px 198px 96px 0px rgba(0, 0, 0, 0.07);
-}
-
-@media (max-width: 768px) {
-  .vid {
-    border-radius: 16px;
-  }
+  border: 1px solid #e7ebef;
 }
 
 .link {
@@ -164,4 +166,35 @@ h4 {
   line-height: 26px; /* 173.333% */
   letter-spacing: 1.35px;
   text-transform: uppercase;
+}
+
+.avatar-group {
+  position: relative;
+}
+
+.avatar-group img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid #e7ebef;
+}
+
+.avatar-group span {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  margin-bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #eeeeee;
+  color: #000;
+  padding: 2px 6px;
+  text-align: center;
+  white-space: nowrap;
+  text-transform: uppercase;
+  border-radius: 4px;
+}
+
+.avatar-group:hover span {
+  display: block;
 }
